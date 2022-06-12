@@ -10,68 +10,44 @@ func retornaResultado(s string) string {
 		-------------
  		| %s | %s | %s |`, matriz[2][0], matriz[2][1], matriz[2][2], matriz[1][0], matriz[1][1], matriz[1][2], matriz[0][0], matriz[0][1], matriz[0][2])
 }
-func marcaPosicaoEscolhidaComX(x string) {
+func marcaPosicaoEscolhida(x string, n int) {
+	var opcao string
+	if n == 1 {
+		opcao = "X"
+	} else {
+		opcao = "O"
+	}
 	switch x {
 	case "1":
-		matriz[0][0] = "X"
+		matriz[0][0] = opcao
 		fmt.Println("\n", retornaResultado(matriz[0][0]))
 	case "2":
-		matriz[0][1] = "X"
+		matriz[0][1] = opcao
 		fmt.Println("\n", retornaResultado(matriz[0][1]))
 	case "3":
-		matriz[0][2] = "X"
+		matriz[0][2] = opcao
 		fmt.Println("\n", retornaResultado(matriz[0][2]))
 	case "4":
-		matriz[1][0] = "X"
+		matriz[1][0] = opcao
 		fmt.Println("\n", retornaResultado(matriz[1][0]))
 	case "5":
-		matriz[1][1] = "X"
+		matriz[1][1] = opcao
 		fmt.Println("\n", retornaResultado(matriz[1][1]))
 	case "6":
-		matriz[1][2] = "X"
+		matriz[1][2] = opcao
 		fmt.Println("\n", retornaResultado(matriz[1][2]))
 	case "7":
-		matriz[2][0] = "X"
+		matriz[2][0] = opcao
 		fmt.Println("\n", retornaResultado(matriz[2][0]))
 	case "8":
-		matriz[2][1] = "X"
+		matriz[2][1] = opcao
 		fmt.Println("\n", retornaResultado(matriz[2][1]))
 	case "9":
-		matriz[2][2] = "X"
+		matriz[2][2] = opcao
 		fmt.Println("\n", retornaResultado(matriz[2][2]))
 	}
 }
-func marcaPosicaoEscolhidaComO(o string) {
-	switch o {
-	case "1":
-		matriz[0][0] = "O"
-		fmt.Println("\n", retornaResultado(matriz[0][0]))
-	case "2":
-		matriz[0][1] = "O"
-		fmt.Println("\n", retornaResultado(matriz[0][1]))
-	case "3":
-		matriz[0][2] = "O"
-		fmt.Println("\n", retornaResultado(matriz[0][2]))
-	case "4":
-		matriz[1][0] = "O"
-		fmt.Println("\n", retornaResultado(matriz[1][0]))
-	case "5":
-		matriz[1][1] = "O"
-		fmt.Println("\n", retornaResultado(matriz[1][1]))
-	case "6":
-		matriz[1][2] = "O"
-		fmt.Println("\n", retornaResultado(matriz[1][2]))
-	case "7":
-		matriz[2][0] = "O"
-		fmt.Println("\n", retornaResultado(matriz[2][0]))
-	case "8":
-		matriz[2][1] = "O"
-		fmt.Println("\n", retornaResultado(matriz[2][1]))
-	case "9":
-		matriz[2][2] = "O"
-		fmt.Println("\n", retornaResultado(matriz[2][2]))
-	}
-}
+
 func verificaVencedor(m [][]string) bool {
 	switch {
 	case m[0][0] == m[0][1] && m[0][1] == m[0][2] && m[0][2] != " ":
@@ -94,7 +70,6 @@ func verificaVencedor(m [][]string) bool {
 		return false
 	}
 }
-
 func verificaJogadaValida(j string) bool {
 	_, exists := jogadasLivres[j]
 	if exists {
@@ -103,12 +78,12 @@ func verificaJogadaValida(j string) bool {
 	}
 	return false
 }
-
 func jogadaJogador1() {
+	jogador = 1
 	fmt.Println("\nJogador 1 - Faça uma jogada - X")
 	fmt.Scan(&jogada)
 	if verificaJogadaValida(jogada) {
-		marcaPosicaoEscolhidaComX(jogada)
+		marcaPosicaoEscolhida(jogada, jogador)
 	} else {
 		fmt.Println("\nOpa, parece que você escolheu uma posição já ocupada")
 		fmt.Println("\nou digitou um número / caracter inválido")
@@ -116,15 +91,15 @@ func jogadaJogador1() {
 	}
 }
 func jogadaJogador2() {
+	jogador = 2
 	fmt.Println("\nJogador 2 - Faça uma jogada - O")
 	fmt.Scan(&jogada)
 	if verificaJogadaValida(jogada) {
-		marcaPosicaoEscolhidaComO(jogada)
+		marcaPosicaoEscolhida(jogada, jogador)
 	} else {
 		fmt.Println("\nOpa, parece que você escolheu uma posição já ocupada")
 		fmt.Println("\nou digitou um número / caracter inválido")
 		jogadaJogador2()
-
 	}
 }
 func iniciaJogo() bool {
@@ -133,6 +108,7 @@ func iniciaJogo() bool {
 	jogadaJogador1()
 	jogadaJogador2()
 	jogadaJogador1()
+
 	if verificaVencedor(matriz) {
 		vencedor = true
 		return vencedor
@@ -164,6 +140,7 @@ func iniciaJogo() bool {
 	return vencedor
 }
 
+var jogador int
 var andamentoDoJogo string
 var jogada string
 var vencedor bool = false
@@ -190,10 +167,11 @@ func main() {
 	// fmt.Scan(&nome)
 
 	fmt.Printf(`
-	# Jogo da Velha
+	# Bem-vindo ao Jogo da Velha
 	# O jogo funciona da seguinte forma:
 	# Cada número escolhido representa uma casa no jogo da velha
 	# A ordem das casas está de acordo com o teclado númerico
+	# Boa sorte
 	
 		| 7 | 8 | 9 |
 		------------
