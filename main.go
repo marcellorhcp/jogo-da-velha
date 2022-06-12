@@ -2,17 +2,27 @@ package main
 
 import "fmt"
 
-func retornaResultado(s string) string {
-	return fmt.Sprintf(
-		`		| %s | %s | %s |
-		-------------
- 		| %s | %s | %s |
-		-------------
- 		| %s | %s | %s |`,
-		matriz[2][0], matriz[2][1], matriz[2][2],
-		matriz[1][0], matriz[1][1], matriz[1][2],
-		matriz[0][0], matriz[0][1], matriz[0][2])
+var jogador int
+var andamentoDoJogo string
+var jogada string
+var vencedor bool = false
+var matriz = [][]string{
+	{" ", " ", " "},
+	{" ", " ", " "},
+	{" ", " ", " "},
 }
+var jogadasLivres = map[string]int{
+	"1": 1,
+	"2": 2,
+	"3": 3,
+	"4": 4,
+	"5": 5,
+	"6": 6,
+	"7": 7,
+	"8": 8,
+	"9": 9,
+}
+
 func marcaPosicaoEscolhida(x string, n int) {
 	var opcao string = "X"
 	if n == 2 {
@@ -21,31 +31,22 @@ func marcaPosicaoEscolhida(x string, n int) {
 	switch x {
 	case "1":
 		matriz[0][0] = opcao
-		fmt.Println("\n", retornaResultado(matriz[0][0]))
 	case "2":
 		matriz[0][1] = opcao
-		fmt.Println("\n", retornaResultado(matriz[0][1]))
 	case "3":
 		matriz[0][2] = opcao
-		fmt.Println("\n", retornaResultado(matriz[0][2]))
 	case "4":
 		matriz[1][0] = opcao
-		fmt.Println("\n", retornaResultado(matriz[1][0]))
 	case "5":
 		matriz[1][1] = opcao
-		fmt.Println("\n", retornaResultado(matriz[1][1]))
 	case "6":
 		matriz[1][2] = opcao
-		fmt.Println("\n", retornaResultado(matriz[1][2]))
 	case "7":
 		matriz[2][0] = opcao
-		fmt.Println("\n", retornaResultado(matriz[2][0]))
 	case "8":
 		matriz[2][1] = opcao
-		fmt.Println("\n", retornaResultado(matriz[2][1]))
 	case "9":
 		matriz[2][2] = opcao
-		fmt.Println("\n", retornaResultado(matriz[2][2]))
 	}
 }
 func verificaVencedor(m [][]string) bool {
@@ -81,6 +82,7 @@ func verificaJogadaValida(j string) bool {
 func jogadaJogador1() {
 	jogador = 1
 	fmt.Println("\nJogador 1 - Faça uma jogada - X")
+	fmt.Println("\n", RetornaResultadoParcialdaPartida())
 	fmt.Scan(&jogada)
 	if verificaJogadaValida(jogada) {
 		marcaPosicaoEscolhida(jogada, jogador)
@@ -93,6 +95,7 @@ func jogadaJogador1() {
 func jogadaJogador2() {
 	jogador = 2
 	fmt.Println("\nJogador 2 - Faça uma jogada - O")
+	fmt.Println("\n", RetornaResultadoParcialdaPartida())
 	fmt.Scan(&jogada)
 	if verificaJogadaValida(jogada) {
 		marcaPosicaoEscolhida(jogada, jogador)
@@ -139,34 +142,6 @@ func iniciaJogo() bool {
 	}
 	return vencedor
 }
-func informaResultadoDaPartida() {
-	if vencedor {
-		fmt.Printf("\nParabéns, você venceu Jogador %v!!! :)", jogador)
-	} else {
-		fmt.Println("\nih, deu velha :(")
-	}
-}
-
-var jogador int
-var andamentoDoJogo string
-var jogada string
-var vencedor bool = false
-var matriz = [][]string{
-	{" ", " ", " "},
-	{" ", " ", " "},
-	{" ", " ", " "},
-}
-var jogadasLivres = map[string]int{
-	"1": 1,
-	"2": 2,
-	"3": 3,
-	"4": 4,
-	"5": 5,
-	"6": 6,
-	"7": 7,
-	"8": 8,
-	"9": 9,
-}
 
 func main() {
 	// var nome string
@@ -188,5 +163,5 @@ func main() {
 
 `)
 	iniciaJogo()
-	informaResultadoDaPartida()
+	InformaResultadoFinalDaPartida()
 }
