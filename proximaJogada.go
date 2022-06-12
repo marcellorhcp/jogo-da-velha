@@ -2,14 +2,14 @@ package main
 
 import "fmt"
 
-func ProximaJogada(num int) {
-	jogador = num
+func ProximaJogada(numeroDoJogador int) {
+	jogador = numeroDoJogador
 	var opcao string = "X"
 	if jogador == 2 {
 		opcao = "0"
 	}
 	fmt.Printf("\nJogador %v - Faça uma jogada - %s", jogador, opcao)
-	fmt.Println("\n", RetornaResultadoParcialdaPartida())
+	fmt.Println("\n\n", RetornaResultadoParcialdaPartida())
 	fmt.Scan(&jogada)
 	if VerificaJogadaValida(jogada) {
 		MarcaPosicaoEscolhida(jogada, opcao)

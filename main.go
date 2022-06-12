@@ -42,6 +42,7 @@ func main() {
 		| 1 | 2 | 3 |
 
 `)
+
 	IniciaJogo()
 	InformaResultadoFinalDaPartida()
 }
