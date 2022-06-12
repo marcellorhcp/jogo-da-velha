@@ -8,14 +8,15 @@ func retornaResultado(s string) string {
 		-------------
  		| %s | %s | %s |
 		-------------
- 		| %s | %s | %s |`, matriz[2][0], matriz[2][1], matriz[2][2], matriz[1][0], matriz[1][1], matriz[1][2], matriz[0][0], matriz[0][1], matriz[0][2])
+ 		| %s | %s | %s |`,
+		matriz[2][0], matriz[2][1], matriz[2][2],
+		matriz[1][0], matriz[1][1], matriz[1][2],
+		matriz[0][0], matriz[0][1], matriz[0][2])
 }
 func marcaPosicaoEscolhida(x string, n int) {
-	var opcao string
-	if n == 1 {
-		opcao = "X"
-	} else {
-		opcao = "O"
+	var opcao string = "X"
+	if n == 2 {
+		opcao = "0"
 	}
 	switch x {
 	case "1":
@@ -47,7 +48,6 @@ func marcaPosicaoEscolhida(x string, n int) {
 		fmt.Println("\n", retornaResultado(matriz[2][2]))
 	}
 }
-
 func verificaVencedor(m [][]string) bool {
 	switch {
 	case m[0][0] == m[0][1] && m[0][1] == m[0][2] && m[0][2] != " ":
@@ -139,6 +139,13 @@ func iniciaJogo() bool {
 	}
 	return vencedor
 }
+func informaResultadoDaPartida() {
+	if vencedor {
+		fmt.Printf("\nParabéns, você venceu Jogador %v!!! :)", jogador)
+	} else {
+		fmt.Println("\nih, deu velha :(")
+	}
+}
 
 var jogador int
 var andamentoDoJogo string
@@ -181,9 +188,5 @@ func main() {
 
 `)
 	iniciaJogo()
-	if vencedor {
-		fmt.Println("\nParabéns, você venceu!!! :)")
-	} else {
-		fmt.Println("\nih, deu velha :(")
-	}
+	informaResultadoDaPartida()
 }
