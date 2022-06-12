@@ -23,33 +23,6 @@ var jogadasLivres = map[string]int{
 	"9": 9,
 }
 
-func jogadaJogador1() {
-	jogador = 1
-	fmt.Println("\nJogador 1 - Faça uma jogada - X")
-	fmt.Println("\n", RetornaResultadoParcialdaPartida())
-	fmt.Scan(&jogada)
-	if VerificaJogadaValida(jogada) {
-		MarcaPosicaoEscolhida(jogada, jogador)
-	} else {
-		fmt.Println("\nOpa, parece que você escolheu uma posição já ocupada")
-		fmt.Println("\nou digitou um número / caracter inválido")
-		jogadaJogador1()
-	}
-}
-func jogadaJogador2() {
-	jogador = 2
-	fmt.Println("\nJogador 2 - Faça uma jogada - O")
-	fmt.Println("\n", RetornaResultadoParcialdaPartida())
-	fmt.Scan(&jogada)
-	if VerificaJogadaValida(jogada) {
-		MarcaPosicaoEscolhida(jogada, jogador)
-	} else {
-		fmt.Println("\nOpa, parece que você escolheu uma posição já ocupada")
-		fmt.Println("\nou digitou um número / caracter inválido")
-		jogadaJogador2()
-	}
-}
-
 func main() {
 	// var nome string
 	// fmt.Println("Digite o nome do Jogador 1")
