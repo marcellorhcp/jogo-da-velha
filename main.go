@@ -23,69 +23,13 @@ var jogadasLivres = map[string]int{
 	"9": 9,
 }
 
-func marcaPosicaoEscolhida(x string, n int) {
-	var opcao string = "X"
-	if n == 2 {
-		opcao = "0"
-	}
-	switch x {
-	case "1":
-		matriz[0][0] = opcao
-	case "2":
-		matriz[0][1] = opcao
-	case "3":
-		matriz[0][2] = opcao
-	case "4":
-		matriz[1][0] = opcao
-	case "5":
-		matriz[1][1] = opcao
-	case "6":
-		matriz[1][2] = opcao
-	case "7":
-		matriz[2][0] = opcao
-	case "8":
-		matriz[2][1] = opcao
-	case "9":
-		matriz[2][2] = opcao
-	}
-}
-func verificaVencedor(m [][]string) bool {
-	switch {
-	case m[0][0] == m[0][1] && m[0][1] == m[0][2] && m[0][2] != " ":
-		return true
-	case m[1][0] == m[1][1] && m[1][1] == m[1][2] && m[1][2] != " ":
-		return true
-	case m[2][0] == m[2][1] && m[2][1] == m[2][2] && m[2][2] != " ":
-		return true
-	case m[0][0] == m[1][0] && m[1][0] == m[2][0] && m[2][0] != " ":
-		return true
-	case m[0][1] == m[1][1] && m[1][1] == m[2][1] && m[2][1] != " ":
-		return true
-	case m[0][2] == m[1][2] && m[1][2] == m[2][2] && m[2][2] != " ":
-		return true
-	case m[0][0] == m[1][1] && m[1][1] == m[2][2] && m[2][2] != " ":
-		return true
-	case m[2][0] == m[1][1] && m[1][1] == m[0][2] && m[0][2] != " ":
-		return true
-	default:
-		return false
-	}
-}
-func verificaJogadaValida(j string) bool {
-	_, exists := jogadasLivres[j]
-	if exists {
-		delete(jogadasLivres, j)
-		return true
-	}
-	return false
-}
 func jogadaJogador1() {
 	jogador = 1
 	fmt.Println("\nJogador 1 - Faça uma jogada - X")
 	fmt.Println("\n", RetornaResultadoParcialdaPartida())
 	fmt.Scan(&jogada)
-	if verificaJogadaValida(jogada) {
-		marcaPosicaoEscolhida(jogada, jogador)
+	if VerificaJogadaValida(jogada) {
+		MarcaPosicaoEscolhida(jogada, jogador)
 	} else {
 		fmt.Println("\nOpa, parece que você escolheu uma posição já ocupada")
 		fmt.Println("\nou digitou um número / caracter inválido")
@@ -97,50 +41,13 @@ func jogadaJogador2() {
 	fmt.Println("\nJogador 2 - Faça uma jogada - O")
 	fmt.Println("\n", RetornaResultadoParcialdaPartida())
 	fmt.Scan(&jogada)
-	if verificaJogadaValida(jogada) {
-		marcaPosicaoEscolhida(jogada, jogador)
+	if VerificaJogadaValida(jogada) {
+		MarcaPosicaoEscolhida(jogada, jogador)
 	} else {
 		fmt.Println("\nOpa, parece que você escolheu uma posição já ocupada")
 		fmt.Println("\nou digitou um número / caracter inválido")
 		jogadaJogador2()
 	}
-}
-func iniciaJogo() bool {
-	jogadaJogador1()
-	jogadaJogador2()
-	jogadaJogador1()
-	jogadaJogador2()
-	jogadaJogador1()
-
-	if verificaVencedor(matriz) {
-		vencedor = true
-		return vencedor
-	}
-
-	jogadaJogador2()
-	if verificaVencedor(matriz) {
-		vencedor = true
-		return vencedor
-	}
-
-	jogadaJogador1()
-	if verificaVencedor(matriz) {
-		vencedor = true
-		return vencedor
-	}
-
-	jogadaJogador2()
-	if verificaVencedor(matriz) {
-		vencedor = true
-		return vencedor
-	}
-
-	jogadaJogador1()
-	if verificaVencedor(matriz) {
-		vencedor = true
-		return vencedor
-	}
-	return vencedor
 }
 
 func main() {
@@ -162,6 +69,6 @@ func main() {
 		| 1 | 2 | 3 |
 
 `)
-	iniciaJogo()
+	IniciaJogo()
 	InformaResultadoFinalDaPartida()
 }
