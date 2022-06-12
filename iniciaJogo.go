@@ -8,32 +8,27 @@ func IniciaJogo() bool {
 	ProximaJogada(1)
 
 	if VerificaVencedor(matriz) {
-		vencedor = true
-		return vencedor
+		return true
 	}
 
 	ProximaJogada(2)
 	if VerificaVencedor(matriz) {
-		vencedor = true
-		return vencedor
+		return true
 	}
 
 	ProximaJogada(1)
 	if VerificaVencedor(matriz) {
-		vencedor = true
-		return vencedor
+		return true
 	}
 
 	ProximaJogada(2)
 	if VerificaVencedor(matriz) {
-		vencedor = true
-		return vencedor
+		return true
 	}
 
 	ProximaJogada(1)
 	if VerificaVencedor(matriz) {
-		vencedor = true
-		return vencedor
+		return true
 	}
-	return vencedor
+	return false
 }

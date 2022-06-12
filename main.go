@@ -5,7 +5,6 @@ import "fmt"
 var jogador int
 var andamentoDoJogo string
 var jogada string
-var vencedor bool = false
 var matriz = [][]string{
 	{" ", " ", " "},
 	{" ", " ", " "},
@@ -42,7 +41,5 @@ func main() {
 		| 1 | 2 | 3 |
 
 `)
-
-	IniciaJogo()
-	InformaResultadoFinalDaPartida()
+	InformaResultadoFinalDaPartida(IniciaJogo())
 }
