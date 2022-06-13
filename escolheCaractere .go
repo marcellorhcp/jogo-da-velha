@@ -21,6 +21,6 @@ func EscolheCaractere() {
 		jogador2.caractere = "X"
 	default:
 		fmt.Println("Parece que você digitou uma opção inválida")
-		EscolheCaracter()
+		EscolheCaractere()
 	}
 }
