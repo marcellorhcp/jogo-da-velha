@@ -1,9 +1,9 @@
 package main
 
-func VerificaJogadaValida(j string) bool {
-	_, exists := jogadasLivres[j]
+func VerificaJogadaValida(jogadaEscolhida string) bool {
+	_, exists := jogadasLivres[jogadaEscolhida]
 	if exists {
-		delete(jogadasLivres, j)
+		delete(jogadasLivres, jogadaEscolhida)
 		return true
 	}
 	return false

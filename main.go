@@ -2,19 +2,13 @@ package main
 
 import "fmt"
 
-type jogador struct {
-	caractere string
+type Jogador struct {
 	player    int
+	caractere string
 }
 
-var jogador1 = jogador{
-	player:    1,
-	caractere: "",
-}
-var jogador2 = jogador{
-	player:    2,
-	caractere: "",
-}
+var jogador1 = novoJogador(1, "")
+var jogador2 = novoJogador(2, "")
 
 var andamentoDoJogo string
 var jogada string
@@ -50,6 +44,8 @@ func main() {
 		| 1 | 2 | 3 |
 
 `)
+
 	EscolheCaractere()
 	InformaResultadoFinalDaPartida(IniciaJogo())
+
 }
