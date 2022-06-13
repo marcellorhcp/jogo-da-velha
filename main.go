@@ -5,7 +5,6 @@ import "fmt"
 type jogador struct {
 	caractere string
 	player    int
-	//nome string
 }
 
 var jogador1 = jogador{
@@ -17,7 +16,6 @@ var jogador2 = jogador{
 	caractere: "",
 }
 
-//var jogador int
 var andamentoDoJogo string
 var jogada string
 var matriz = [][]string{
@@ -38,10 +36,6 @@ var jogadasLivres = map[string]int{
 }
 
 func main() {
-	// var nome string
-	// fmt.Println("Digite o nome do Jogador 1")
-	// fmt.Scan(&nome)
-
 	fmt.Printf(`
 	# Bem-vindo ao Jogo da Velha
 	# O jogo funciona da seguinte forma:
