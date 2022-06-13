@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func InformaResultadoFinalDaPartida(resultado bool) {
+func InformaResultadoFinalDaPartida(resultado bool, jogador int) {
 	if resultado {
 		fmt.Printf("\nParabéns, você venceu Jogador %v!!! :)", jogador)
 		fmt.Println("\n\n", RetornaResultadoParcialdaPartida())

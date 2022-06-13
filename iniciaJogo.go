@@ -1,34 +1,36 @@
 package main
 
-func IniciaJogo() bool {
-	ProximaJogada(1)
-	ProximaJogada(2)
-	ProximaJogada(1)
-	ProximaJogada(2)
-	ProximaJogada(1)
+func IniciaJogo() (bool, int) {
+	// var rodadas = 9
 
+	ProximaJogada(jogador1.player, jogador1.caractere)
+	ProximaJogada(jogador2.player, jogador2.caractere)
+	ProximaJogada(jogador1.player, jogador1.caractere)
+	ProximaJogada(jogador2.player, jogador2.caractere)
+
+	ProximaJogada(jogador1.player, jogador1.caractere)
 	if VerificaVencedor(matriz) {
-		return true
+		return true, jogador1.player
 	}
 
-	ProximaJogada(2)
+	ProximaJogada(jogador2.player, jogador2.caractere)
 	if VerificaVencedor(matriz) {
-		return true
+		return true, jogador2.player
 	}
 
-	ProximaJogada(1)
+	ProximaJogada(jogador1.player, jogador1.caractere)
 	if VerificaVencedor(matriz) {
-		return true
+		return true, jogador1.player
 	}
 
-	ProximaJogada(2)
+	ProximaJogada(jogador2.player, jogador2.caractere)
 	if VerificaVencedor(matriz) {
-		return true
+		return true, jogador2.player
 	}
 
-	ProximaJogada(1)
+	ProximaJogada(jogador1.player, jogador1.caractere)
 	if VerificaVencedor(matriz) {
-		return true
+		return true, jogador1.player
 	}
-	return false
+	return false, 0
 }
