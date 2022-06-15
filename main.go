@@ -7,11 +7,6 @@ type Jogador struct {
 	caractere string
 }
 
-var contadorX int
-var contadorO int
-var andamentoDoJogo string
-
-// var jogada string
 var matriz = [][]string{
 	{" ", " ", " "},
 	{" ", " ", " "},
