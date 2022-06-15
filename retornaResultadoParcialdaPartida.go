@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func RetornaResultadoParcialdaPartida() string {
+func RetornaResultadoParcialdaPartida(matriz [][]string) string {
 	return fmt.Sprintf(
 		`		| %s | %s | %s |
 		-------------

@@ -7,11 +7,6 @@ type Jogador struct {
 	caractere string
 }
 
-var matriz = [][]string{
-	{" ", " ", " "},
-	{" ", " ", " "},
-	{" ", " ", " "},
-}
 var jogadasLivres = map[string]int{
 	"1": 1,
 	"2": 2,
@@ -27,6 +22,12 @@ var jogadasLivres = map[string]int{
 func main() {
 	var jogador1 = novoJogador(1, "")
 	var jogador2 = novoJogador(2, "")
+
+	var matriz = [][]string{
+		{" ", " ", " "},
+		{" ", " ", " "},
+		{" ", " ", " "},
+	}
 
 	fmt.Printf(`
 	# Bem-vindo ao Jogo da Velha
@@ -44,6 +45,6 @@ func main() {
 `)
 
 	EscolheCaractere(&jogador1, &jogador2)
-	InformaResultadoFinalDaPartida(IniciaJogo(&jogador1, &jogador2))
+	InformaResultadoFinalDaPartida(IniciaJogo(&jogador1, &jogador2, matriz))
 
 }

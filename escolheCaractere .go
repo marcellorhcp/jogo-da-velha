@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func EscolheCaractere(jogador1, jogador2 *Jogador) (*Jogador, *Jogador) {
+func EscolheCaractere(jogador1, jogador2 *Jogador) {
 	var escolha string
 
 	fmt.Println("Jogador 1, escolha qual caracter será utilizado")
@@ -23,5 +23,4 @@ func EscolheCaractere(jogador1, jogador2 *Jogador) (*Jogador, *Jogador) {
 		fmt.Println("Parece que você digitou uma opção inválida")
 		EscolheCaractere(jogador1, jogador2)
 	}
-	return jogador1, jogador2
 }

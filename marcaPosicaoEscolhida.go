@@ -1,6 +1,6 @@
 package main
 
-func MarcaPosicaoEscolhida(posicaoEscolhida string, caracter string) {
+func MarcaPosicaoEscolhida(posicaoEscolhida string, caracter string, matriz [][]string) {
 	switch posicaoEscolhida {
 	case "1":
 		matriz[0][0] = caracter
