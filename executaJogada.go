@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func ExecutaJogada(numeroDoJogador int, opcaoDeJogada string) bool {
+	var jogada string
 	fmt.Printf("\nJogador %v - Faça uma jogada - %s", numeroDoJogador, opcaoDeJogada)
 	fmt.Println("\n\n", RetornaResultadoParcialdaPartida())
 	fmt.Scan(&jogada)

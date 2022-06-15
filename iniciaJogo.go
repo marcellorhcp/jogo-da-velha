@@ -1,6 +1,6 @@
 package main
 
-func IniciaJogo() (bool, int) {
+func IniciaJogo(jogador1, jogador2 *Jogador) (bool, int) {
 	// var rodadas = 9
 
 	ExecutaJogada(jogador1.player, jogador1.caractere)

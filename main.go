@@ -7,11 +7,11 @@ type Jogador struct {
 	caractere string
 }
 
-var jogador1 = novoJogador(1, "")
-var jogador2 = novoJogador(2, "")
-
+var contadorX int
+var contadorO int
 var andamentoDoJogo string
-var jogada string
+
+// var jogada string
 var matriz = [][]string{
 	{" ", " ", " "},
 	{" ", " ", " "},
@@ -30,6 +30,9 @@ var jogadasLivres = map[string]int{
 }
 
 func main() {
+	var jogador1 = novoJogador(1, "")
+	var jogador2 = novoJogador(2, "")
+
 	fmt.Printf(`
 	# Bem-vindo ao Jogo da Velha
 	# O jogo funciona da seguinte forma:
@@ -45,7 +48,7 @@ func main() {
 
 `)
 
-	EscolheCaractere()
-	InformaResultadoFinalDaPartida(IniciaJogo())
+	EscolheCaractere(&jogador1, &jogador2)
+	InformaResultadoFinalDaPartida(IniciaJogo(&jogador1, &jogador2))
 
 }
