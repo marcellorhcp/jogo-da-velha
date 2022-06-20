@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+//RetornaResultadoParcialdaPartida possibilita ao jogador ter uma visão do andamento da partida antes de decidir a sua jogada
 func RetornaResultadoParcialdaPartida(matriz [][]string) string {
 	return fmt.Sprintf(
 		`		| %s | %s | %s |

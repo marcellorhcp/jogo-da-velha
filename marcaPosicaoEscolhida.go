@@ -1,5 +1,6 @@
 package main
 
+//MarcaPosicaoEscolhida recebe a posição escolhida pelo jogador e adiciona a jogada válida na matriz do jogo da velha
 func MarcaPosicaoEscolhida(posicaoEscolhida string, caracter string, matriz [][]string) {
 	switch posicaoEscolhida {
 	case "1":

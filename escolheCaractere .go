@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+//EscolheCaractere recebe dois ponteiros do tipo jogador e possibilita a escolha do caractere que será utilizado
+//a função é chamada de forma recursiva caso o jogador não escolha uma opção válida
 func EscolheCaractere(jogador1, jogador2 *Jogador) {
 	var escolha string
 

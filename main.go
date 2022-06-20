@@ -11,12 +11,13 @@ func main() {
 	var jogador1 = novoJogador(1, "")
 	var jogador2 = novoJogador(2, "")
 
+	//matriz representa as posições no jogo da velha
 	var matriz = [][]string{
 		{" ", " ", " "},
 		{" ", " ", " "},
 		{" ", " ", " "},
 	}
-
+	//jogadasLivres representa as opções que estão disponíveis para que o jogador faça sua jogada numa posição válida
 	var jogadasLivres = map[string]int{
 		"1": 1,
 		"2": 2,

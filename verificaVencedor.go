@@ -1,5 +1,6 @@
 package main
 
+//VerificaVencedor verifica se a combinação atual de jogadas marcadas na matriz tem um vencedor
 func VerificaVencedor(m [][]string) bool {
 	switch {
 	case m[0][0] == m[0][1] && m[0][1] == m[0][2] && m[0][2] != " ":
