@@ -16,5 +16,5 @@ func ExecutaJogada(jogador *Jogador, matriz [][]string) bool {
 		fmt.Println("\nou digitou um número / caracter inválido")
 		ExecutaJogada(jogador, matriz)
 	}
-	return VerificaVencedor(matriz) || VerificaVelha(matriz)
+	return VerificaVencedor(matriz)
 }

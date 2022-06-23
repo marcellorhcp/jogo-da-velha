@@ -20,11 +20,15 @@ func IniciaJogo(jogador1, jogador2 *Jogador, matriz [][]string) (bool, int, [][]
 	if ExecutaJogada(jogador1, matriz) {
 		return true, jogador1.numero, matriz
 	}
-
+	if VerificaVelha(matriz) {
+		return false, 0, matriz
+	}
 	if ExecutaJogada(jogador2, matriz) {
 		return true, jogador2.numero, matriz
 	}
-
+	if VerificaVelha(matriz) {
+		return false, 0, matriz
+	}
 	if ExecutaJogada(jogador1, matriz) {
 		return true, jogador1.numero, matriz
 	}
