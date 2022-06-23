@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 type Jogador struct {
-	player    int
+	numero    int
 	caractere string
 }
 
@@ -16,18 +16,6 @@ func main() {
 		{" ", " ", " "},
 		{" ", " ", " "},
 		{" ", " ", " "},
-	}
-	//jogadasLivres representa as opções que estão disponíveis para que o jogador faça sua jogada numa posição válida
-	var jogadasLivres = map[string]int{
-		"1": 1,
-		"2": 2,
-		"3": 3,
-		"4": 4,
-		"5": 5,
-		"6": 6,
-		"7": 7,
-		"8": 8,
-		"9": 9,
 	}
 
 	fmt.Printf(`
@@ -46,6 +34,6 @@ func main() {
 `)
 
 	EscolheCaractere(&jogador1, &jogador2)
-	InformaResultadoFinalDaPartida(IniciaJogo(&jogador1, &jogador2, matriz, jogadasLivres))
+	InformaResultadoFinalDaPartida(IniciaJogo(&jogador1, &jogador2, matriz))
 
 }
