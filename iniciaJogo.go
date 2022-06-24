@@ -1,6 +1,6 @@
 package main
 
-//IniciaJogo recebe dois ponteiros do tipo Jogador, a matriz que representa o jogo da velha e o map jogadas disponíveis
+//IniciaJogo recebe dois ponteiros do tipo Jogador e a matriz que representa o jogo da velha
 //e também retorna um valor booleano, um jogador e a matriz final para função InformaResultadoFinalDaPartida
 func IniciaJogo(jogador1, jogador2 *Jogador, matriz [][]string) (bool, int, [][]string) {
 

@@ -1,5 +1,6 @@
 package main
 
+//SelecionaPosicao recebe uma jogada e retorna os valores correspondentes para a matriz do jogo da velha
 func SelecionaPosicao(jogada string) (int, int) {
 	switch jogada {
 	case "1":
