@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-//ExecutaJogada executa a opção escolhida pelo jogador, caso ela esteja disponível
+//ExecutaJogada executa a opção escolhida pelo jogador caso ela esteja disponível
 //caso contrário, de forma recursiva, a função é chamada novamente até que a jogada seja válida
 func ExecutaJogada(jogador *Jogador, matriz [][]string) bool {
 	var jogada string
