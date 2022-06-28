@@ -22,6 +22,6 @@ func SelecionaPosicao(jogada string) (int, int) {
 	case "9":
 		return 2, 2
 	default:
-		return 9, 9
+		return -1, -1
 	}
 }
