@@ -3,13 +3,14 @@ package main
 import "fmt"
 
 type Jogador struct {
-	numero    int
-	caractere string
+	numero            int
+	caractere         string
+	quantidadeJogadas int
 }
 
 func main() {
-	var jogador1 = novoJogador(1, "")
-	var jogador2 = novoJogador(2, "")
+	var jogador1 = novoJogador(1, "", 0)
+	var jogador2 = novoJogador(2, "", 0)
 
 	//matriz representa as posições no jogo da velha
 	var matriz = [][]string{
@@ -31,7 +32,7 @@ func main() {
 		------------
 		| 1 | 2 | 3 |
 
-`)
+	`)
 
 	EscolheCaractere(&jogador1, &jogador2)
 	InformaResultadoFinalDaPartida(IniciaJogo(&jogador1, &jogador2, matriz))
