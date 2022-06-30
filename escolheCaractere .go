@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/marcellorhcp/jogo-da-velha/model"
 )
 
 //EscolheCaractere recebe dois ponteiros do tipo jogador e possibilita a escolha do caractere que será utilizado
 //a função é chamada de forma recursiva caso o jogador não escolha uma opção válida
-func EscolheCaractere(jogador1, jogador2 *Jogador) {
+func EscolheCaractere(jogador1, jogador2 *model.Jogador) {
 	var escolha string
 
 	fmt.Println("Jogador 1, escolha qual caracter será utilizado")
@@ -16,11 +18,11 @@ func EscolheCaractere(jogador1, jogador2 *Jogador) {
 
 	switch escolha {
 	case "1":
-		jogador1.caractere = "X"
-		jogador2.caractere = "O"
+		jogador1.Caractere = "X"
+		jogador2.Caractere = "O"
 	case "2":
-		jogador1.caractere = "O"
-		jogador2.caractere = "X"
+		jogador1.Caractere = "O"
+		jogador2.Caractere = "X"
 	default:
 		fmt.Println("Parece que você digitou uma opção inválida")
 		EscolheCaractere(jogador1, jogador2)
