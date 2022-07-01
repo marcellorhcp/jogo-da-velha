@@ -19,7 +19,7 @@ func main() {
 
 	view.InstrucoesDoJogo()
 
-	EscolheCaractere(&jogador1, &jogador2)
-	InformaResultadoFinalDaPartida(IniciaJogo(&jogador1, &jogador2, matriz))
+	view.EscolheCaractere(&jogador1, &jogador2)
+	view.InformaResultadoFinalDaPartida(IniciaJogo(&jogador1, &jogador2, matriz))
 
 }

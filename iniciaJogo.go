@@ -6,6 +6,7 @@ import (
 
 //IniciaJogo recebe dois ponteiros do tipo Jogador e a matriz que representa o jogo da velha
 //e também retorna um valor booleano, um jogador e a matriz final para função InformaResultadoFinalDaPartida
+
 func IniciaJogo(jogador1, jogador2 *model.Jogador, matriz [][]string) (bool, int, [][]string) {
 	jogadorAtual := jogador1
 	proximoJogador := jogador2
